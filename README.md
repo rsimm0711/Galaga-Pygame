@@ -7,7 +7,9 @@ You will need to clone the repository and have Python installed to run the game.
 How To Play:
 
 SPACE - fires a bullet
+
 LEFT ARROW - moves your ship left
+
 RIGHT ARROW - moves your ship right
 
 The objective of the game is to shoot down enemies for as long as you can until you lose. You lose when an enemy ship reaches

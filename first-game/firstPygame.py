@@ -12,6 +12,7 @@ pygame.init()
 screenWidth = 600
 screenHeight = 600
 
+
 win = pygame.display.set_mode((screenWidth, screenHeight))
 
 pygame.display.set_caption("First Game")
@@ -27,7 +28,7 @@ class player(object):
         self.y = y
         self.width = width
         self.height = height
-        self.vel = 5
+        self.vel = 7
         
     def draw(self, win):
         win.blit(mainShip, (self.x, self.y))
@@ -59,8 +60,6 @@ class enemy(object):
 # visual of hitbox:
 #        pygame.draw.rect(win, (255, 0, 0), self.hitbox, 1)
         
-    def hit(self):
-        print('hit')
 
 
 # function to redraw window after each iteration of the main loop
@@ -72,6 +71,9 @@ def redrawWin():
     spaceship.draw(win)
     for foe in foes:
         foe.draw(win)
+      
+    text = font.render('Score: ' + str(score), True, (255, 0, 0))    
+    win.blit(text, (screenWidth - 120, 0))
     
     pygame.display.update()
         
@@ -82,6 +84,9 @@ bullets = []
 enemyCounter = 50
 newEnemyTime = 50
 run = True
+score = 0
+font = pygame.font.Font('freesansbold.ttf', 24)
+
 while run:
     pygame.time.delay(100)
     
@@ -99,7 +104,7 @@ while run:
         if f.y < screenHeight:
             f.y += f.vel
         else:
-            print('GAME OVER')
+            print('GAME OVER. Your final score is:' + str(score))
             run = False
             
     for bullet in bullets:
@@ -108,6 +113,7 @@ while run:
                 if bullet.y > f.hitbox[1] and bullet.y < (f.hitbox[1] + f.hitbox[3]):
                     bullets.pop(bullets.index(bullet))
                     foes.pop(foes.index(f))
+                    score += 5
                     
         if bullet.y > 0 and bullet.y < screenHeight:
             bullet.y -= bullet.vel
@@ -138,6 +144,13 @@ while run:
     
         
 pygame.quit()
+
+
+
+
+
+
+
 
 
 

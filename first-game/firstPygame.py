@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Jan 15 17:25:24 2020
-
-@author: maple
-"""
 
 import pygame
 import random
@@ -100,12 +95,6 @@ while run:
         if event.type == pygame.QUIT:
             run = False
             
-    for f in foes:
-        if f.y < screenHeight:
-            f.y += f.vel
-        else:
-            print('GAME OVER. Your final score is:' + str(score))
-            run = False
             
     for bullet in bullets:
         for f in foes:
@@ -139,20 +128,11 @@ while run:
         if f.y < screenHeight - f.height:
             f.y += f.vel
         else:
-            print('GAME OVER')
+            print('GAME OVER. Your final score is:' + str(score))
             run = False
     
         
 pygame.quit()
-
-
-
-
-
-
-
-
-
 
 
 

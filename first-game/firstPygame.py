@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 import pygame
 import random
 pygame.init()
@@ -51,9 +52,9 @@ class enemy(object):
     def draw(self, win):
         win.blit(enemyShip, (self.x, self.y))
         # draw hitbox
-        self.hitbox = (self.x + 10, self.y, self.width - 20, self.height)
+        self.hitbox = (self.x + 7, self.y, self.width - 13, self.height)
 # visual of hitbox:
-#        pygame.draw.rect(win, (255, 0, 0), self.hitbox, 1)
+        pygame.draw.rect(win, (255, 0, 0), self.hitbox, 1)
         
 
 
@@ -133,7 +134,4 @@ while run:
     
         
 pygame.quit()
-
-
-
 

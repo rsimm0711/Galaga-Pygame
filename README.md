@@ -2,7 +2,7 @@
 
 This is a simple game made with Python 2.7 and Pygame. It has basic implementation/functionality but I have plans to add more to it.
 
-You will need to clone the repository and have Python installed to run the game. I used Spyder to run the file. 
+You will need to clone the repository and have Python and Pygame installed to run the game. I used Spyder to run the file. 
 
 How To Play:
 

@@ -1,4 +1,4 @@
-# Asteroids-Pygame
+# Galaga-Pygame
 
 This is a simple game made with Python 2.7 and Pygame. It has basic implementation/functionality but I have plans to add more to it.
 

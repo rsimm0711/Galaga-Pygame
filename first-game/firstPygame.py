@@ -54,7 +54,7 @@ class enemy(object):
         # draw hitbox
         self.hitbox = (self.x + 7, self.y, self.width - 13, self.height)
 # visual of hitbox:
-        pygame.draw.rect(win, (255, 0, 0), self.hitbox, 1)
+#        pygame.draw.rect(win, (255, 0, 0), self.hitbox, 1)
         
 
 

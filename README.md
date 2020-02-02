@@ -16,3 +16,5 @@ The objective of the game is to shoot down enemies for as long as you can until 
 the bottom of the screen without being shot down. In this case, the program will close and print "GAME OVER" to the console.
 
 The wonderful spaceships are made by MillionthVector!
+
+(name of repo renamed from Asteroids since theme is more true to Galaga)

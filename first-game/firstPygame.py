@@ -65,29 +65,30 @@ def redrawWin():
         bullet.draw(win)
         
     spaceship.draw(win)
-    for foe in foes:
-        foe.draw(win)
+    for e in enemies:
+        e.draw(win)
       
     text = font.render('Score: ' + str(score), True, (255, 0, 0))    
-    win.blit(text, (screenWidth - 120, 0))
+    win.blit(text, (screenWidth - 140, 0))
     
     pygame.display.update()
         
 # main loop
 spaceship = player(screenWidth/2 - 85/2, screenHeight - 85, 85, 85)
-foes = []
+enemies = []
 bullets = []
 enemyCounter = 50
 newEnemyTime = 50
 run = True
 score = 0
 font = pygame.font.Font('freesansbold.ttf', 24)
+bulletCooldown = 0
 
 while run:
     pygame.time.delay(100)
     
     if enemyCounter == newEnemyTime:
-        foes.append(enemy(random.randint(0, screenWidth - 64), 0, 64, 64))
+        enemies.append(enemy(random.randint(0, screenWidth - 64), 0, 64, 64))
         enemyCounter = 0
     else:
         enemyCounter += 1
@@ -98,11 +99,11 @@ while run:
             
             
     for bullet in bullets:
-        for f in foes:
-            if bullet.x > f.hitbox[0] and bullet.x < (f.hitbox[0] + f.hitbox[2]):
-                if bullet.y > f.hitbox[1] and bullet.y < (f.hitbox[1] + f.hitbox[3]):
+        for e in enemies:
+            if bullet.x > e.hitbox[0] and bullet.x < (e.hitbox[0] + e.hitbox[2]):
+                if bullet.y > e.hitbox[1] and bullet.y < (e.hitbox[1] + e.hitbox[3]):
                     bullets.pop(bullets.index(bullet))
-                    foes.pop(foes.index(f))
+                    enemies.pop(enemies.index(e))
                     score += 5
                     
         if bullet.y > 0 and bullet.y < screenHeight:
@@ -113,8 +114,11 @@ while run:
             
     keys = pygame.key.get_pressed()
     
-    if keys[pygame.K_SPACE]:
+    if keys[pygame.K_SPACE] and bulletCooldown == 0:
         bullets.append(projectile(int(spaceship.x + spaceship.width/2), int(spaceship.y + spaceship.height/2)))
+        bulletCooldown += 1
+    else:
+        bulletCooldown += 1
     
     if keys[pygame.K_LEFT] and spaceship.x > spaceship.vel:
         spaceship.x -= spaceship.vel
@@ -125,12 +129,16 @@ while run:
     
     redrawWin()
     
-    for f in foes:
-        if f.y < screenHeight - f.height:
-            f.y += f.vel
+    for e in enemies:
+        if e.y < screenHeight - e.height:
+            e.y += e.vel
         else:
             print('GAME OVER. Your final score is:' + str(score))
             run = False
+            
+    if bulletCooldown == 2: 
+        bulletCooldown = 0
+
     
         
 pygame.quit()

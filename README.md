@@ -4,6 +4,11 @@ This is a simple game made with Python 2.7 and Pygame. It has basic implementati
 
 You will need to clone the repository and have Python and Pygame installed to run the game. I used Spyder to run the file. 
 
+Or, try it out on repl.it:
+https://repl.it/@rsimm0711/Galaga-Pygame
+
+Unfortunately it will be very small and runs very slowly on repl.it, but its enough to get the basic idea.
+
 How To Play:
 
 SPACE - fires a bullet

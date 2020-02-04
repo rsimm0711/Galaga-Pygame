@@ -7,7 +7,7 @@ You will need to clone the repository and have Python and Pygame installed to ru
 Or, try it out on repl.it:
 https://repl.it/@rsimm0711/Galaga-Pygame
 
-Unfortunately it will be very small and runs very slowly on repl.it, but its enough to get the basic idea.
+Unfortunately it will be very small and runs very slowly on repl.it, but it's enough to get the basic idea.
 
 How To Play:
 
